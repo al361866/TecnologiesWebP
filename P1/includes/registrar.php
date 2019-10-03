@@ -4,19 +4,19 @@ include("./gestionBD.php");
 function handler($pdo,$table)
 {
     $datos = $_REQUEST;
-    if (count($_REQUEST) < 3) {
+    if (count($_REQUEST) < 6) {
         $data["error"] = "No has rellenado el formulario correctamente";
         return;
     }
-    $query = "INSERT INTO     $table (nombre, email,clave)
-                        VALUES (?,?,?)";
+    $query = "INSERT INTO     $table (nombre, apellidos, email,dni, clave, foto_file)
+                        VALUES (?,?,?,?,?,?)";
                        
     echo $query;
     try { 
-        $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['passwd'] );
+        $a=array($_REQUEST['userName'], $_REQUEST['surName'], $_REQUEST['email'],$_REQUEST['dni'], $_REQUEST['passwd'], $_REQUEST['foto_file'] );
         print_r ($a);
         $consult = $pdo->prepare($query);
-        $a=$consult->execute(array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['passwd']  ));
+        $a=$consult->execute(array($_REQUEST['userName'], $_REQUEST['surName'], $_REQUEST['email'],$_REQUEST['dni'], $_REQUEST['passwd'], $_REQUEST['foto_file'] ));
         if (1>$a)echo "InCorrecto";
     
     } catch (PDOExeption $e) {

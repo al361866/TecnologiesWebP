@@ -15,7 +15,13 @@ function handler($pdo,$table)
             print "<tr>";
             foreach ($row as $key => $val) {
                 echo "<td>", $val, "</td>";
+                $identificador = $row["client_id"];
             }
+            ?>
+
+            <td> <button><a href="<?php print "portal.php?action=update&client_id=$identificador" ?>">Modificar</a></button> 
+                 <button><a href="<?php print "portal.php?action=delete&client_id=$identificador" ?>">Borrar</a></button></td>
+            <?php 
             print "</tr>";
         }
         print "</table>";

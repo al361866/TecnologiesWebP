@@ -9,6 +9,7 @@ function insertar($pdo,$table,$valor) {
     if (1>$a)echo "InCorrecto";
                      
 }
+
 function borrar($pdo,$table,$valor) {
     $query = "DELETE   FROM   $table WHERE client_id =(?)";
     $consult = $pdo->prepare($query);
@@ -23,6 +24,15 @@ function consultar($pdo,$table) {
     $a=$consult->execute(array());
     if (1>$a)echo "InCorrecto2";
     return ($consult->fetchAll(PDO::FETCH_ASSOC)); 
+  
+}
+function consultar_usuario($pdo,$table, $client_id) {
+    $query = "SELECT * FROM $table WHERE client_id=$client_id"; 
+    $consult = $pdo->prepare($query);
+    $a=$consult->execute(array());
+    if (1>$a)echo "InCorrecto3";
+
+    return ($consult->fetch(PDO::FETCH_ASSOC)); 
   
 }
 
