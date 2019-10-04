@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <!--**
- * * Descripción: Cabecera portal Programa Aprender PHP
+ * * Descripción: Cabecera portal Programa Aprender PHP. Fichero header.php
  * *
  * * Descripción extensa: Pagina web dividida en 4 ficheros.
  * *
- * * @author  Lola <dllido@uji.es>
+ * * @title: Practica 1: Aprender con PHP
+ * * @author Adrian Sorribas Segua & Ferran Ramia Tena  ;al361880@uji.es&al361866@uji.es; 
+ * * @copyright 2019 Adrián & Ferran
+ * * @license CC-BY-NC-SA
  * * @version 1
- * * @link http://dllido@al.nisu.org/P0/holaMundo.php
  * * -->
+ 
 <html>
 
 <head>
