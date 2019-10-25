@@ -1,0 +1,78 @@
+/*
+ Theme Name:   Twenty Seventeen Child
+ Theme URI:    http://example.com/twenty-seventeen-child/
+ Description:  Twenty Seventeen Child Theme
+ Author:       John Doe
+ Author URI:   http://example.com
+ Template:     twentyseventeen
+ Version:      1.0.2
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+ Text Domain:  twenty-seventeen-child
+ Autores: Ferran Ramia & Adrian Sorribas
+ */
+
+/* =Aquí empieza la personalización de tu tema
+ -------------------------------------------------------------- */
+@import url("../twentyseventeen/style.css");
+
+.widget_rss span.rss-date {
+
+    color: green;
+
+}
+#pie{
+	color:yellow;
+	font: bold 1em arial, sans-serif;
+}
+
+p:first-letter {
+  font-weight: bold;
+  font-size: 40px;}
+
+
+h1 {color:lightgray;
+font-weight: bold;
+}
+
+h2,h3{font-style: oblique;}
+
+#enlaces {
+	text-decoration:none;
+	font-weight: 600;
+	font-size: 10px;
+	color:#333333;
+	padding-top:25px;
+	padding-bottom:12px;
+	padding-left:40px;
+	padding-right:40px;
+	background-color:orangered;
+	border-color: black;
+	border-width: 4px;
+	border-style: solid;
+	border-radius:15px;
+
+}
+
+#blog{
+	text-decoration:none;
+	font-weight: 600;
+	font-size: 20px;
+	color:white;
+	padding-top:15px;
+	padding-bottom:15px;
+	padding-left:40px;
+	padding-right:40px;
+	background-color: transparent;
+	border-width: 3px;
+	border-style: solid;
+	border-color: white;
+
+}
+
+#titulo{
+	color:blueviolet;
+	font-weight: bold;
+}
+ 
