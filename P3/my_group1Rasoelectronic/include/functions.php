@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 //Funcion instalación plugin. Crea tabla
-function MP_CrearT($tabla){
+function MP_CrearTRasoelectronic($tabla){
     
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
     $query="CREATE TABLE IF NOT EXISTS $tabla (person_id INT(11) NOT NULL AUTO_INCREMENT, nombre VARCHAR(100),  email VARCHAR(100),  foto_file VARCHAR(25), clienteMail VARCHAR(100),  PRIMARY KEY(person_id))";
@@ -29,11 +29,11 @@ function MP_CrearT($tabla){
 }
 
 
-function MP_Register_Form($MP_user , $user_email)
+function MP_Register_FormRasoelectronic($MP_user , $user_email)
 {//formulario registro amigos de $user_email
     ?>
     <h1>Gestión de Usuarios </h1>
-    <form class="fom_usuario" action="?action=my_datos&proceso=registrar" method="POST" enctype="multipart/form-data">
+    <form class="fom_usuario" action="?action=my_datosRasoelectronic&proceso=registrar" method="POST" enctype="multipart/form-data">
         <label for="clienteMail">Tu correo</label>
         <br/>
         <input type="text" name="clienteMail"  size="20" maxlength="25" value="<?php print $user_email?>"
@@ -64,9 +64,9 @@ function MP_Register_Form($MP_user , $user_email)
 //CONTROLADOR
 //Esta función realizará distintas acciones en función del valor del parámetro
 //$_REQUEST['proceso'], o sea se activara al llamar a url semejantes a 
-//https://host/wp-admin/admin-post.php?action=my_datos&proceso=r 
+//https://host/wp-admin/admin-post.php?action=my_datosRasoelectronic&proceso=r 
 
-function MP_my_datos()
+function MP_my_datosRasoelectronic()
 { 
     global $user_ID , $user_email,$table;
     
@@ -87,7 +87,7 @@ function MP_my_datos()
     switch ($_REQUEST['proceso']) {
         case "registro":
             $MP_user=null; //variable a rellenar cuando usamos modificar con este formulario
-            MP_Register_Form($MP_user,$user_email);
+            MP_Register_FormRasoelectronic($MP_user,$user_email);
             break;
         case "registrar":
             if (count($_REQUEST) < 4) { //Al ser un parámetro más, incrementamos el num de parámetros
@@ -114,7 +114,7 @@ function MP_my_datos()
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
             if (1>$a) {echo "InCorrecto $query";}
-            else wp_redirect(admin_url( 'admin-post.php?action=my_datos&proceso=listar'));//Redireccionamos la salida para mostrar la salida
+            else wp_redirect(admin_url( 'admin-post.php?action=my_datosRasoelectronic&proceso=listar'));//Redireccionamos la salida para mostrar la salida
             break;
         case "listar":
             //Listado amigos o de todos si se es administrador.
