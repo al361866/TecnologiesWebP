@@ -98,7 +98,7 @@ function MP_my_datos()
             $IMAGENES_USUARIOS = '/wp-content/uploads/fotos_usuarios/';
             $actual_path = realpath(dirname(getcwd()));//Obtener path actual
             echo $actual_path;
-            echo $_FILES;
+            var_dump($_FILES);
             if(array_key_exists('foto_file', $_FILES) && $_POST['email']) {
                 $fotoURL = $actual_path.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto_file']['name'];
                 
