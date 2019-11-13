@@ -96,8 +96,10 @@ function MP_my_datos()
             }
             $fotoURL="";
             $IMAGENES_USUARIOS = '/wp-content/uploads/fotos_usuarios/';
+            $actual_path = realpath(dirname(getcwd()));//Obtener path actual
             if(array_key_exists('foto', $_FILES) && $_POST['email']) {
-                $fotoURL = $IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
+                $fotoURL = $actual_path.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
+                
                 if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
                     { echo "foto subida con éxito";
             }}
@@ -133,7 +135,7 @@ function MP_my_datos()
                     print "<tr>";
                     foreach ($row as $key => $val) {
                         if($key == "foto_file"){
-                            $fotoURL = "../fotos/" . $val; 
+                            $fotoURL = "../wp-content/uploads/fotos_usuarios/".$val; 
                             echo "<td>";
                             echo "<img src=$fotoURL>";
                             echo "<td>";
