@@ -98,12 +98,14 @@ function MP_my_datos()
             $IMAGENES_USUARIOS = '/wp-content/uploads/fotos_usuarios/';
             $actual_path = realpath(dirname(getcwd()));//Obtener path actual
             echo $actual_path;
+            echo $_FILES;
             if(array_key_exists('foto_file', $_FILES) && $_POST['email']) {
                 $fotoURL = $actual_path.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto_file']['name'];
                 
                 if (move_uploaded_file($_FILES['foto_file']['tmp_name'], $fotoURL))
                     { echo "foto subida con éxito";
-            }}
+                }else echo "foto no subida";
+            }
 
             $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";//Anyadimos campo de foto a la consulta         
             $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'],$fotoURL );// Se anyade la consulta de la foto
