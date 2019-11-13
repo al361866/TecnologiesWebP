@@ -97,10 +97,10 @@ function MP_my_datos()
             $fotoURL="";
             $IMAGENES_USUARIOS = '/wp-content/uploads/fotos_usuarios/';
             $actual_path = realpath(dirname(getcwd()));//Obtener path actual
-            if(array_key_exists('foto', $_FILES) && $_POST['email']) {
-                $fotoURL = $actual_path.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
+            if(array_key_exists('foto_file', $_FILES) && $_POST['email']) {
+                $fotoURL = $actual_path.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto_file']['name'];
                 
-                if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
+                if (move_uploaded_file($_FILES['foto_file']['tmp_name'], $fotoURL))
                     { echo "foto subida con éxito";
             }}
 
