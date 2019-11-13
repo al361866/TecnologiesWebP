@@ -100,7 +100,8 @@ function MP_my_datos()
             //echo $actual_path;
             var_dump($_FILES);
             if(array_key_exists('foto_file', $_FILES) && $_POST['email']) {
-                $fotoURL = $actual_path.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto_file']['name'];
+                $foto=$_POST['userName']."_".$_FILES['foto_file']['name'];
+                $fotoURL = $actual_path.$IMAGENES_USUARIOS.$foto;
                 //Creamos todo el path de la foto
                 if (move_uploaded_file($_FILES['foto_file']['tmp_name'], $fotoURL))
                     { echo "foto subida con éxito";
@@ -108,7 +109,7 @@ function MP_my_datos()
             }
 
             $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";//Anyadimos campo de foto a la consulta         
-            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'],$fotoURL );// Se anyade la consulta de la foto
+            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'],$foto );// Se anyade la consulta de la foto
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
