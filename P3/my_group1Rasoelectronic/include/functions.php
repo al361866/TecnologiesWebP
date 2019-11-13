@@ -97,11 +97,11 @@ function MP_my_datos()
             $fotoURL="";
             $IMAGENES_USUARIOS = '/wp-content/uploads/fotos_usuarios/';
             $actual_path = realpath(dirname(getcwd()));//Obtener path actual
-            echo $actual_path;
+            //echo $actual_path;
             var_dump($_FILES);
             if(array_key_exists('foto_file', $_FILES) && $_POST['email']) {
                 $fotoURL = $actual_path.$IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto_file']['name'];
-                
+                //Creamos todo el path de la foto
                 if (move_uploaded_file($_FILES['foto_file']['tmp_name'], $fotoURL))
                     { echo "foto subida con éxito";
                 }else echo "foto no subida";
@@ -113,7 +113,7 @@ function MP_my_datos()
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
             if (1>$a) {echo "InCorrecto $query";}
-            //else wp_redirect(admin_url( 'admin-post.php?action=my_datos&proceso=listar'));
+            else wp_redirect(admin_url( 'admin-post.php?action=my_datos&proceso=listar'));//Redireccionamos la salida para mostrar la salida
             break;
         case "listar":
             //Listado amigos o de todos si se es administrador.
@@ -137,7 +137,7 @@ function MP_my_datos()
                     print "<tr>";
                     foreach ($row as $key => $val) {
                         if($key == "foto_file"){
-                            $fotoURL = "../wp-content/uploads/fotos_usuarios/".$val; 
+                            $fotoURL = "../wp-content/uploads/fotos_usuarios/".$val; //Mostrar la salida del campo foto
                             echo "<td>";
                             echo "<img src=$fotoURL>";
                             echo "<td>";
