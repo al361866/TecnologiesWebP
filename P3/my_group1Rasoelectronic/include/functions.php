@@ -111,7 +111,7 @@ function MP_my_datos()
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
             if (1>$a) {echo "InCorrecto $query";}
-            else wp_redirect(admin_url( 'admin-post.php?action=my_datos&proceso=listar'));
+            //else wp_redirect(admin_url( 'admin-post.php?action=my_datos&proceso=listar'));
             break;
         case "listar":
             //Listado amigos o de todos si se es administrador.
