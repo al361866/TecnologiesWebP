@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: my_group1
+Plugin Name: my_groupRasoelectronic
 Description: Register group of persons.
 Author URI: lola L
 Author Email: dllido@uji.es
