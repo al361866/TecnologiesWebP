@@ -50,6 +50,11 @@ function MP_Register_Form($MP_user , $user_email)
         <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["email"] ?>"
         placeholder="kiko@ic.es" />
         <br/>
+
+        <br>
+        <label for="foto_file">Foto</label>
+        <input type="file" name="foto_file" class="item_requerid">
+        <br/>
         <input type="submit" value="Enviar">
         <input type="reset" value="Deshacer">
     </form>
@@ -85,12 +90,20 @@ function MP_my_datos()
             MP_Register_Form($MP_user,$user_email);
             break;
         case "registrar":
-            if (count($_REQUEST) < 3) {
+            if (count($_REQUEST) < 4) { //Al ser un parámetro más, incrementamos el num de parámetros
                 print ("No has rellenado el formulario correctamente");
                 return;
             }
-            $query = "INSERT INTO $table (nombre, email,clienteMail) VALUES (?,?,?)";         
-            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'] );
+            $fotoURL="";
+            $IMAGENES_USUARIOS = '../fotos/';
+            if(array_key_exists('foto', $_FILES) && $_POST['email']) {
+                $fotoURL = $IMAGENES_USUARIOS.$_POST['userName']."_".$_FILES['foto']['name'];
+                if (move_uploaded_file($_FILES['foto']['tmp_name'], $fotoURL))
+                    { echo "foto subida con éxito";
+            }}
+
+            $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";//Anyadimos campo de foto a la consulta         
+            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'],$fotoURL );// Se anyade la consulta de la foto
             //$pdo1 = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
@@ -119,6 +132,12 @@ function MP_my_datos()
                 foreach ($rows as $row) {
                     print "<tr>";
                     foreach ($row as $key => $val) {
+                        if($key == "foto_file"){
+                            $fotoURL = "../fotos/" . $val; 
+                            echo "<td>";
+                            echo "<img src=$fotoURL>";
+                            echo "<td>";
+                        }
                         echo "<td>", $val, "</td>";
                     }
                     print "</tr>";
