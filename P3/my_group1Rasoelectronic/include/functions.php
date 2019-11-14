@@ -55,7 +55,8 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
         <label class="titulo_label" for="foto_file">Foto</label>
         <input class="selector_imagen" type="file" name="foto_file" class="item_requerid">
         <br/>
-        <input class="boton_submit" type="submit" value="Enviar">
+        <br>
+        <input class="boton_undo" type="submit" value="Enviar">
         <input class="boton_undo" type="reset" value="Deshacer">
     </form>
 <?php
@@ -218,22 +219,6 @@ function hook_css() {
                 color: #5F9EA0;
               }
 
-            .boton_submit{
-                text-decoration: none;
-                padding: 3px;
-                padding-left: 10px;
-                padding-right: 10px;
-                font-family: helvetica;
-                font-size: 25px;
-                font-style: italic;
-                color: black;
-                background-color: #708090;
-                border-radius: 10px;
-                border: 2px black;
-              }
-              .boton_submit:hover{
-                opacity: 0.9;
-              }
 
               .boton_undo{
                 text-decoration: none;
