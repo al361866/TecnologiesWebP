@@ -4,8 +4,8 @@
  * *
  * * Descripción extensa: Iremos añadiendo cosas complejas en PHP.
  * *
- * * @author  Lola <dllido@uji.es> 
- * * @copyright 2018 Lola
+ * * @author  Ferran Ramia & Adrian Sorribas 
+ * * @copyright 2019 Ferran & Adrina
  * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
  * * @version 2
  * */
