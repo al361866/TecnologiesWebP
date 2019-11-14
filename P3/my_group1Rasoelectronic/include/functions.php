@@ -103,7 +103,7 @@ function MP_my_datosRasoelectronic()
             if(array_key_exists('foto_file', $_FILES) && $_POST['email']) {
                 $foto = $_POST['userName']."_".$_FILES['foto_file']['name'];
                 echo "Foto: $foto '\n'";
-                $fotoURL = $actual_path . $IMAGENES_USUARIOS . $foto;
+                $fotoURL = $actual_path.$IMAGENES_USUARIOS.$foto;
                 echo "FotoURL: $fotoURL";
 
                 //Creamos todo el path de la foto
@@ -143,7 +143,7 @@ function MP_my_datosRasoelectronic()
                         if($key == "foto_file"){
                             $fotoURL = "../wp-content/uploads/fotos_usuarios/".$val; //Mostrar la salida del campo foto
                             echo "<td>";
-                            echo "<img src=$fotoURL>";
+                            echo "<img class='Foto' src=$fotoURL>";
                             echo "<td>";
                         } else {
                         echo "<td>", $val, "</td>";
@@ -172,6 +172,23 @@ function MP_my_datosRasoelectronic()
 
     get_footer();
     }
-//add_action('admin_post_nopriv_my_datos', 'my_datos');
-//add_action('admin_post_my_datos', 'my_datos'); //no autentificados
+
+//Estil CSS
+function hook_css() {
+   ?>
+       <style>
+           .Title {
+               text-align: center;
+               font-size: 40px;
+               font-weight: bold;
+           }
+           .Foto {
+               width: 110px;
+               height: 85px;
+           }
+           
+           </style>
+   <?php
+}
+add_action('wp_head', 'hook_css');
 ?>
