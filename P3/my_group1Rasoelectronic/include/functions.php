@@ -95,7 +95,7 @@ function MP_my_datosRasoelectronic()
                 return;
             }
             $fotoURL="";
-            $foto = $_POST['userName']."_".$_FILES['foto_file']['name'];
+            $foto = "";
             $IMAGENES_USUARIOS = '/wp-content/uploads/fotos_usuarios/';
             $actual_path = realpath(dirname(getcwd()));//Obtener path actual
             //echo $actual_path;
