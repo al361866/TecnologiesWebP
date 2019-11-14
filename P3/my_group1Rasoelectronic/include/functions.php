@@ -109,8 +109,8 @@ function MP_my_datosRasoelectronic()
                 }else {echo "foto no subida";}
             }
 
-            $query = "INSERT INTO $table (nombre, email,clienteMail,foto) VALUES (?,?,?,?)";//Anyadimos campo de foto a la consulta         
-            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'],$foto );// Se anyade la consulta de la foto
+            $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";//Anyadimos campo de foto a la consulta         
+            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'],$fotoURL );// Se anyade la consulta de la foto
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
             if (1>$a) {echo "InCorrecto $query $a";}
