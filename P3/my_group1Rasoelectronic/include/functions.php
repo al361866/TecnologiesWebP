@@ -102,9 +102,9 @@ function MP_my_datosRasoelectronic()
             var_dump($_FILES);
             if(array_key_exists('foto_file', $_FILES) && $_POST['email']) {
                 $foto = $_POST['userName']."_".$_FILES['foto_file']['name'];
-                echo "$foto";
+                echo "Foto: $foto '\n'";
                 $fotoURL = $actual_path . $IMAGENES_USUARIOS . $foto;
-                echo "$fotoURL";
+                echo "FotoURL: $fotoURL";
 
                 //Creamos todo el path de la foto
                 if (move_uploaded_file($_FILES['foto_file']['tmp_name'], $fotoURL))
