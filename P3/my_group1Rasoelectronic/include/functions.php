@@ -211,7 +211,6 @@ function hook_css() {
             }
            
            .selector_imagen{
-                opacity: 0.6;
                 font-family: helvetica;
                 font-weight: 200;
                 font-size: 20px;
@@ -221,7 +220,6 @@ function hook_css() {
 
 
               .boton_undo{
-                text-decoration: none;
                 padding: 3px;
                 padding-left: 10px;
                 padding-right: 10px;
