@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 function MP_CrearTRasoelectronic($tabla){
     
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
-    $query="CREATE TABLE IF NOT EXISTS $tabla (person_id INT(11) NOT NULL AUTO_INCREMENT, nombre VARCHAR(100),  email VARCHAR(100),  foto_file VARCHAR(100), clienteMail VARCHAR(100),  PRIMARY KEY(person_id))";
+    $query="CREATE TABLE IF NOT EXISTS $tabla (person_id INT(11) NOT NULL AUTO_INCREMENT, nombre VARCHAR(100),  email VARCHAR(100),  foto_file VARCHAR(25), clienteMail VARCHAR(100),  PRIMARY KEY(person_id))";
     $consult = $MP_pdo->prepare($query);
     $consult->execute (array());
 }
@@ -101,11 +101,11 @@ function MP_my_datosRasoelectronic()
             var_dump($_FILES);
             if(array_key_exists('foto_file', $_FILES) && $_POST['email']) {
                 $foto = $_POST['userName']."_".$_FILES['foto_file']['name'];
-                $fotoURL = $actual_path.$IMAGENES_USUARIOS.$foto;
+                $fotoURL = $actual_path . $IMAGENES_USUARIOS . $foto;
                 //Creamos todo el path de la foto
                 if (move_uploaded_file($_FILES['foto_file']['tmp_name'], $fotoURL))
                     { echo "foto subida con éxito";
-                }else echo "foto no subida";
+                }else {echo "foto no subida";}
             }
 
             $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";//Anyadimos campo de foto a la consulta         
