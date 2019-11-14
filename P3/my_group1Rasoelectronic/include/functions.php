@@ -197,10 +197,7 @@ function hook_css() {
               border: white 3px dotted;
               padding: 3px;
             }
-            input:hover {
-              background-color: #F0FFFF;
-              padding: 2px
-            }
+ 
             input:active {
               border: 2px solid #2F4F4F;
               padding: 2px
