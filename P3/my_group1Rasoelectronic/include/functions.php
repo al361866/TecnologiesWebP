@@ -53,10 +53,10 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
 
         <br>
         <label class="titulo_label" for="foto_file">Foto</label>
-        <input type="file" name="foto_file" class="item_requerid">
+        <input class="selector_imagen" type="file" name="foto_file" class="item_requerid">
         <br/>
-        <input type="submit" value="Enviar">
-        <input type="reset" value="Deshacer">
+        <input class="boton_submit" type="submit" value="Enviar">
+        <input class="boton_undo" type="reset" value="Deshacer">
     </form>
 <?php
 }
@@ -208,6 +208,49 @@ function hook_css() {
               font-size: 25px;
               font-weight: bold;
             }
+           
+           .selector_imagen{
+                opacity: 0.6;
+                font-family: helvetica;
+                font-weight: 200;
+                font-size: 20px;
+                font-style: italic;
+                color: #5F9EA0;
+              }
+
+            .boton_submit{
+                text-decoration: none;
+                padding: 3px;
+                padding-left: 10px;
+                padding-right: 10px;
+                font-family: helvetica;
+                font-size: 25px;
+                font-style: italic;
+                color: black;
+                background-color: #708090;
+                border-radius: 10px;
+                border: 2px black;
+              }
+              .boton_submit:hover{
+                opacity: 0.9;
+              }
+
+              .boton_undo{
+                text-decoration: none;
+                padding: 3px;
+                padding-left: 10px;
+                padding-right: 10px;
+                font-family: helvetica;
+                font-size: 25px;
+                font-style: italic;
+                color: black;
+                background-color: white;
+                border-radius: 10px;
+                border: 2px black;
+              }
+              .boton_undo:hover{
+                opacity: 0.9;
+              }
            
            </style>
    <?php
