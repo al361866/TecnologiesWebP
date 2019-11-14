@@ -183,8 +183,8 @@ function hook_css() {
                font-weight: bold;
            }
            .Foto {
-               width: 110px;
-               height: 85px;
+               width: 140px;
+               height: 120px;
            }
            
            </style>
