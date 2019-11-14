@@ -113,7 +113,8 @@ function MP_my_datosRasoelectronic()
             $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'],$foto );// Se anyade la consulta de la foto
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
-            if (1>$a) {echo "InCorrecto $query $a";}
+            if (1>$a) {echo "InCorrecto $query"
+                        echo "Error, $consult;}
             else wp_redirect(admin_url( 'admin-post.php?action=my_datosRasoelectronic&proceso=listar'));//Redireccionamos la salida para mostrar la salida
             break;
         case "listar":
