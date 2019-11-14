@@ -186,6 +186,8 @@ function hook_css() {
            .Foto {
                width: 140px;
                height: 120px;
+               border-radius: 5px;
+               border: 2px white;
            }
            
            .titulo_legend{
