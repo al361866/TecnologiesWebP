@@ -34,25 +34,25 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
     ?>
     <h1>Gestión de Usuarios </h1>
     <form class="fom_usuario" action="?action=my_datosRasoelectronic&proceso=registrar" method="POST" enctype="multipart/form-data">
-        <label for="clienteMail">Tu correo</label>
+        <label class="titulo_label" for="clienteMail">Tu correo</label>
         <br/>
         <input type="text" name="clienteMail"  size="20" maxlength="25" value="<?php print $user_email?>"
         readonly />
         <br/>
-        <legend>Datos básicos</legend>
-        <label for="nombre">Nombre</label>
+        <legend class="titulo_legend">Datos básicos</legend>
+        <label class="titulo_label" for="nombre">Nombre</label>
         <br/>
         <input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["userName"] ?>"
         placeholder="Miguel Cervantes" />
         <br/>
-        <label for="email">Email</label>
+        <label class="titulo_label" for="email">Email</label>
         <br/>
         <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["email"] ?>"
         placeholder="kiko@ic.es" />
         <br/>
 
         <br>
-        <label for="foto_file">Foto</label>
+        <label class="titulo_label" for="foto_file">Foto</label>
         <input type="file" name="foto_file" class="item_requerid">
         <br/>
         <input type="submit" value="Enviar">
@@ -186,6 +186,31 @@ function hook_css() {
                width: 140px;
                height: 120px;
            }
+           
+           .titulo_legend{
+              font-family: "Times New Roman", Times, serif;
+              font-size: 35px;
+              font-style: oblique;
+            }
+
+            input:focus {
+              border: white 3px dotted;
+              padding: 3px;
+            }
+            input:hover {
+              background-color: #F0FFFF;
+              padding: 2px
+            }
+            input:active {
+              border: 2px solid #2F4F4F;
+              padding: 2px
+            }
+
+            .titulo_label {
+              font-family: "Times New Roman", Times, serif;
+              font-size: 25px;
+              font-weight: bold;
+            }
            
            </style>
    <?php
