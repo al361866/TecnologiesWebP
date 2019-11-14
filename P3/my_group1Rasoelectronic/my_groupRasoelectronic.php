@@ -31,7 +31,7 @@ register_activation_hook( __FILE__, 'MP_Ejecutar_crearTRasoelectronic');
 
 //add_action( 'plugins_loaded', 'Ejecutar_crearT' ); // esto se ejecuta siempre que se llama al plugin
 function MP_Ejecutar_crearTRasoelectronic(){
-    MP_CrearT("A_GrupoCliente000");
+    MP_CrearTRasoelectronic("A_GrupoCliente000");
 }
 //add_action('admin_post_nopriv_my_datos', 'MP_my_datos'); //no autentificados
 add_action('admin_post_my_datosRasoelectronic', "MP_my_datosRasoelectronic"); 
