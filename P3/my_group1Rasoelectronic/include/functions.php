@@ -186,7 +186,7 @@ function hook_css() {
            .Foto {
                width: 140px;
                height: 120px;
-               border-radius: 5px;
+               border-radius: 45px;
                border: 2px white;
            }
            
@@ -236,6 +236,11 @@ function hook_css() {
               .boton_undo:hover{
                 opacity: 0.9;
               }
+           td{
+               font-family: "Times New Roman", Times, serif;
+              font-size: 25px;
+              font-weight: bold;
+           }
            
            </style>
    <?php
