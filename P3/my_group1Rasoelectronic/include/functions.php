@@ -54,9 +54,10 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
 
         <br>
         <label class="titulo_label" for="foto_file">Foto</label>
-        <input id="foto" class="selector_imagen" type="file" name="foto_file" class="item_requerid">
+        <img id="img_foto" src="" class="Foto">
         <br>
-        <img id="img_foto" src="" width="100" height="60">
+        <input id="foto" class="selector_imagen" type="file" name="foto_file" class="item_requerid">
+
         <br/>
         <br>
         <input class="boton_undo" type="submit" value="Enviar">
