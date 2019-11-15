@@ -180,7 +180,7 @@ function hook_css() {
        <style>
            .Title {
                text-align: center;
-               font-size: 40px;
+               font-size: 20px;
                font-weight: bold;
            }
            .Foto {
@@ -237,8 +237,8 @@ function hook_css() {
                 opacity: 0.9;
               }
            td{
-               font-family: "Times New Roman", Times, serif;
-              font-size: 25px;
+              font-family: "Arial", Helvetica, sans-serif;
+              font-size: 20px;
               font-weight: bold;
            }
            
