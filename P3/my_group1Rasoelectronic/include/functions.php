@@ -180,13 +180,13 @@ function hook_css() {
        <style>
            .Title {
                text-align: center;
-               font-size: 20px;
+               font-size: 40px;
                font-weight: bold;
            }
            .Foto {
                width: 140px;
                height: 120px;
-               border-radius: 45px;
+               border-radius: 5px;
                border: 2px white;
            }
            
