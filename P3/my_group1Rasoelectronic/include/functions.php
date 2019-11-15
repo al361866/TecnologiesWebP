@@ -33,30 +33,6 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
 {//formulario registro amigos de $user_email
     ?>
     
-    <script type="text/javascript" defer charset="utf-8">
-    //Afegim el codi per a cargar la visualització de la imatge
-      function mostrarFoto(file, imagen) {
-      //carga la imagen de file en el elemento src imagen
-         var reader = new FileReader();
-         reader.addEventListener("load", function () {
-            imagen.src = reader.result;
-         });
-         reader.readAsDataURL(file);
-      }
-
-      function ready() {
-         var fichero = document.querySelector("#foto");
-         var imagen  = document.querySelector("#img_foto");
-      //escuchamos evento selección nuevo fichero.
-         fichero.addEventListener("change", function (event) {
-            mostrarFoto(this.files[0], imagen);
-         });
-      }
-
-      ready();
-
-   </script>
-
     <h1>Gestión de Usuarios </h1>
     <form class="fom_usuario" action="?action=my_datosRasoelectronic&proceso=registrar" method="POST" enctype="multipart/form-data">
         <label class="titulo_label" for="clienteMail">Tu correo</label>
@@ -78,7 +54,7 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
 
         <br>
         <label class="titulo_label" for="foto_file">Foto</label>
-        <img id="img_foto" class="selector_imagen item_requerid" type="file" name="foto_file" src="" width="100" height="60">
+        <input class="selector_imagen" type="file" name="foto_file" class="item_requerid">
         <br/>
         <br>
         <input class="boton_undo" type="submit" value="Enviar">
