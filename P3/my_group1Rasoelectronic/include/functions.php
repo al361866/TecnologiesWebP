@@ -263,12 +263,12 @@ function hook_css() {
 
            .boton_update{
                text-align: center;
-               text-color: yellow;
+               color: yellow;
            }
            
            .boton_delete{
                text-align: center;
-               text-color: red;
+               color: red;
            }
 
               .boton_undo{
