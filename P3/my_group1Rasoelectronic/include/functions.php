@@ -156,7 +156,7 @@ function MP_Update_FormRasoelectronic($MP_user , $user_email)
 
 function MP_my_datosRasoelectronic()
 { 
-    global $user_ID , $user_email, $table;
+    global $user_ID , $user_email, $table, $MP_user;
     
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
     wp_get_current_user();
