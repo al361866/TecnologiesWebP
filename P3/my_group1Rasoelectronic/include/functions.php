@@ -98,21 +98,21 @@ function MP_Update_FormRasoelectronic($MP_user , $user_email)
     <form class="fom_usuario" action="?action=my_datosRasoelectronic&proceso=update&person_id=<?php print $_GET["person_id"] ?>" method="POST" enctype="multipart/form-data">
         <label class="titulo_label" for="clienteMail">Tu correo</label>
         <br/>
-        <input type="text" name="clienteMail"  size="20" maxlength="25" value="<?php print $_GET["user_mail"]?>"
+        <input type="text" name="clienteMail"  size="20" maxlength="25" value="<?php print $user_email?>"
         readonly />
         <br/>
         <legend class="titulo_legend">Datos básicos</legend>
         <label class="titulo_label" for="nombre">Nombre</label>
         <br/>
-        <input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $_GET["userName"] ?>" />
+        <input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["userName"] ?>" />
         <br/>
         <label class="titulo_label" for="email">Email</label>
         <br/>
-        <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $_GET["email"] ?>"/>
+        <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["email"] ?>"/>
         <br/>
         <br>
         <label class="titulo_label" for="foto_file">Foto actual</label>
-        <img id="img_foto" src=<?php print $_GET["$foto"] ?> class="Foto">
+        <img id="img_foto" src=<?php print $MP_user["$foto"] ?> class="Foto">
         <br>
         <label class="titulo_label" for="foto_file">Foto nueva</label>
         <img id="img_foto" src="" class="Foto">
