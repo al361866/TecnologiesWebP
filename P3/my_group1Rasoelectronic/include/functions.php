@@ -112,7 +112,7 @@ function MP_Update_FormRasoelectronic($MP_user , $user_email)
         <br/>
         <br>
         <label class="titulo_label" for="foto_file">Foto actual</label>
-        <img id="img_foto" src=<?php print $MP_user["$foto"] ?> class="Foto">
+        <img id="img_foto" src=<?php print $_FILES["$foto"]["name"] ?> class="Foto">
         <br>
         <label class="titulo_label" for="foto_file">Foto nueva</label>
         <img id="img_foto" src="" class="Foto">
@@ -156,7 +156,7 @@ function MP_Update_FormRasoelectronic($MP_user , $user_email)
 
 function MP_my_datosRasoelectronic()
 { 
-    global $user_ID , $user_email,$table;
+    global $user_ID , $user_email, $table;
     
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
     wp_get_current_user();
@@ -171,10 +171,6 @@ function MP_my_datosRasoelectronic()
     echo '<div class="wrap">';
 
     switch ($_REQUEST['proceso']) {
-        //falta poner las opciones de actualizar, que llama a la funcion de update creada anteriormente
-        case "actualizar":
-            MP_Update_FormRasoelectronic($MP_user,$user_email);
-            break;
         //funcion de borrar
         case "delete":
             $query = "DELETE   FROM   $table WHERE person_id =(?)";
@@ -217,6 +213,10 @@ function MP_my_datosRasoelectronic()
         case "registro":
             $MP_user=null; //variable a rellenar cuando usamos modificar con este formulario
             MP_Register_FormRasoelectronic($MP_user,$user_email);
+            break;
+        //falta poner las opciones de actualizar, que llama a la funcion de update creada anteriormente
+        case "actualizar":
+            MP_Update_FormRasoelectronic($MP_user,$user_email);
             break;
         case "registrar":
             if (count($_REQUEST) < 4) { //Al ser un parámetro más, incrementamos el num de parámetros
