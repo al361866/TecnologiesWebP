@@ -187,9 +187,9 @@ function MP_my_datosRasoelectronic()
                     }
                     }
                     //botones para modificar el cliente y borrarlo
-                    echo "<td ><a class='boton_update boton_undo' href='?action=my_datosRasoelectronic&proceso=update&person_id=", 
+                    echo "<td ><a class='boton_update' href='?action=my_datosRasoelectronic&proceso=update&person_id=", 
                     $row['person_id'],"'>Modificar</a></td>";
-                    echo "<td><a class='boton_delete boton_undo' href='?action=my_datosRasoelectronic&proceso=delete&person_id=",
+                    echo "<td><a class='boton_delete' href='?action=my_datosRasoelectronic&proceso=delete&person_id=",
                     $row['person_id'],"'>Eliminar</a></td>";
                     print "</tr>";
                 }
@@ -261,16 +261,31 @@ function hook_css() {
                 color: #5F9EA0;
               }
 
-           .boton_update {
-               text-align: center !important; 
-               color: yellow !important; 
+           .boton_update{
+               padding: 3px !important ;
+                padding-left: 10px !important ;
+                padding-right: 10px !important ;
+                font-family: helvetica !important ;
+                font-size: 25px !important ;
+                font-style: italic !important ;
+                color: black !important ;
+                background-color: #6B8B23 !important ;
+                border-radius: 10px !important ;
+                border: 2px black !important ;
            }
            
            .boton_delete{
-               text-align: center !important ;
-               color: red !important ;
+               padding: 3px !important ;
+                padding-left: 10px !important ;
+                padding-right: 10px !important ;
+                font-family: helvetica !important ;
+                font-size: 25px !important ;
+                font-style: italic !important ;
+                color: black !important ;
+                background-color: #800000 !important ;
+                border-radius: 10px !important ;
+                border: 2px black !important ;
            }
-
            .boton_undo{
                 padding: 3px !important ;
                 padding-left: 10px !important ;
@@ -278,7 +293,7 @@ function hook_css() {
                 font-family: helvetica !important ;
                 font-size: 25px !important ;
                 font-style: italic !important ;
-                color: red !important ;
+                color: black !important ;
                 background-color: white !important ;
                 border-radius: 10px !important ;
                 border: 2px black !important ;
