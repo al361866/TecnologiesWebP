@@ -92,16 +92,16 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
 //funcion con el formulario para modificar los datos de los usuarios
 function MP_Update_FormRasoelectronic($MP_user , $user_email)
 {//formulario actualizar datos de $user_email
+    global $table;
     //Recuperación de datos
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
-    $query_datos = "SELECT * FROM $table WHERE $_REQUEST['person_id'];
-    $a=array($_GET['person_id'] );
+    $query_datos = "SELECT * FROM $table WHERE $person_id=?";
+    $a=array($_GET["person_id"]);
     
     $consult = $MP_pdo->prepare($query_datos);
     $consult->execute (array());
     
     $usuario=$a[0];
-    var_dump($a);
     ?>
    
     <h1>Modificación de perfil </h1>
