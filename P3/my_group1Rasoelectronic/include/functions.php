@@ -261,14 +261,14 @@ function hook_css() {
                 color: #5F9EA0;
               }
 
-           .boton_update{
-               text-align: center;
-               color: yellow;
+           .boton_update {
+               text-align: center !important; 
+               color: yellow !important; 
            }
            
            .boton_delete{
-               text-align: center;
-               color: red;
+               text-align: center !important ;
+               color: red !important ;
            }
 
               .boton_undo{
