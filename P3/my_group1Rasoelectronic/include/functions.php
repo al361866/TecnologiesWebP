@@ -92,6 +92,10 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
 //funcion con el formulario para modificar los datos de los usuarios
 function MP_Update_FormRasoelectronic($MP_user , $user_email)
 {//formulario actualizar datos de $user_email
+    //Recuperación de datos
+    $query_datos = "SELECT * FROM $table WHERE $_REQUEST['person_id'];
+    $a=array($_GET['person_id'] );
+    var_dump($a);
     ?>
    
     <h1>Modificación de perfil </h1>
@@ -156,7 +160,7 @@ function MP_Update_FormRasoelectronic($MP_user , $user_email)
 
 function MP_my_datosRasoelectronic()
 { 
-    global $user_ID , $user_email, $table, $MP_user;
+    global $user_ID , $user_email, $table;
     
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
     wp_get_current_user();
@@ -202,6 +206,7 @@ function MP_my_datosRasoelectronic()
                 }else {echo "foto no subida";}
             }
 
+            
             $query = "UPDATE $table SET (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?) WHERE $person_id=(?)";//Anyadimos campo de foto a la consulta         
             $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'],$foto );// Se anyade la consulta de la foto
             
