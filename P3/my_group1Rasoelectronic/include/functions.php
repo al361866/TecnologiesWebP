@@ -180,9 +180,9 @@ function MP_my_datosRasoelectronic()
                     }
                     }
                     //botones para modificar el cliente y borrarlo
-                    echo "<td class='selector_imagen'><a class='btn btn-warning' href='?action=my_datosRasoelectronic&proceso=update&person_id=",
+                    echo "<td class='boton'><a class='btn btn-warning' href='?action=my_datosRasoelectronic&proceso=update&person_id=",
                     $row['person_id'],"'>Modificar</a></td>";
-                    echo "<td class='selector_imagen'><a class='btn btn-danger' href='?action=my_datosRasoelectronic&proceso=delete&person_id=",
+                    echo "<td class='boton'><a class='btn btn-danger' href='?action=my_datosRasoelectronic&proceso=delete&person_id=",
                     $row['person_id'],"'>Eliminar</a></td>";
                     print "</tr>";
                 }
@@ -254,6 +254,13 @@ function hook_css() {
                 color: #5F9EA0;
               }
 
+           .boton{
+               text-align: center;
+               border-radius: 5px;
+               border: 2px white;
+               background-color: #4d4d4d
+               
+           }
 
               .boton_undo{
                 padding: 3px;
