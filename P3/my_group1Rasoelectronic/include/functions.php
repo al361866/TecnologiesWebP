@@ -100,8 +100,9 @@ function MP_Update_FormRasoelectronic($MP_user , $user_email)
     
     $consult = $MP_pdo->prepare($query_datos);
     $consult->execute (array());
+    $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
     
-    $usuario=$a[0];
+    $usuario=$rows[0];
     ?>
    
     <h1>Modificación de perfil </h1>
