@@ -271,7 +271,7 @@ function hook_css() {
                color: red !important ;
            }
 
-              .boton_undo{
+           .boton_undo{
                 padding: 3px !important ;
                 padding-left: 10px !important ;
                 padding-right: 10px !important ;
@@ -282,6 +282,7 @@ function hook_css() {
                 background-color: white !important ;
                 border-radius: 10px !important ;
                 border: 2px black !important ;
+               opacity: 0.9 !important ;
               }
               .boton_undo:hover{
                 opacity: 0.9 !important ;
