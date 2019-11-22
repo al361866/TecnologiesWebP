@@ -187,9 +187,9 @@ function MP_my_datosRasoelectronic()
                     }
                     }
                     //botones para modificar el cliente y borrarlo
-                    echo "<td><a class='btn btn-warning boton_update' href='?action=my_datosRasoelectronic&proceso=update&person_id=",
+                    echo "<td class='boton_update'><a href='?action=my_datosRasoelectronic&proceso=update&person_id=", 
                     $row['person_id'],"'>Modificar</a></td>";
-                    echo "<td><a class='btn btn-danger boton_delete' href='?action=my_datosRasoelectronic&proceso=delete&person_id=",
+                    echo "<td class='boton_update'><a href='?action=my_datosRasoelectronic&proceso=delete&person_id=",
                     $row['person_id'],"'>Eliminar</a></td>";
                     print "</tr>";
                 }
