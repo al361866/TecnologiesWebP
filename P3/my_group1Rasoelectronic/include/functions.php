@@ -115,6 +115,13 @@ function MP_my_datosRasoelectronic()
     switch ($_REQUEST['proceso']) {
         //falta poner las opciones de actualizar, que llamara a la funcion creada previamente
         //funcion de borrar
+        case "delete":
+            $query = "DELETE   FROM   $table WHERE person_id =(?)";
+            $consult = $MP_pdo->prepare($query);
+            $a=$consult->execute(array($_GET["person_id"])); 
+            if (1>$a) echo "InCorrecto Delete";
+            else wp_redirect(admin_url( 'admin-post.php?action=my_datosRasoelectronic&proceso=listar'));
+            break;
         //funcion de update
         case "registro":
             $MP_user=null; //variable a rellenar cuando usamos modificar con este formulario
@@ -174,7 +181,7 @@ function MP_my_datosRasoelectronic()
                             $fotoURL = "../wp-content/uploads/fotos_usuarios/".$val; //Mostrar la salida del campo foto
                             echo "<td>";
                             echo "<img class='Foto' src=$fotoURL>";
-                            echo "<td>";
+                            //echo "<td>";
                         } else {
                         echo "<td>", $val, "</td>";
                     }
