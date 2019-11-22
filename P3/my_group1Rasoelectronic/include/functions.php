@@ -284,7 +284,7 @@ function hook_css() {
                 border: 2px black !important ;
               }
               .boton_undo:hover{
-                opacity: 0.9;
+                opacity: 0.9 !important ;
               }
            td{
               font-family: "Arial", Helvetica, sans-serif;
