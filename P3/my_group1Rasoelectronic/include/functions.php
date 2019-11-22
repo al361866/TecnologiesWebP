@@ -90,16 +90,16 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
 }
 
 //funcion con el formulario para modificar los datos de los usuarios
-function MP_Update_FormRasoelectronic($MP_user , $user_email)
+function MP_Update_FormRasoelectronic()
 {//formulario actualizar datos de $user_email
     global $table;
     //Recuperación de datos
     $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
-    $query_datos = "SELECT * FROM $table WHERE $person_id=?";
+    $query_datos = "SELECT * FROM $table WHERE person_id=?";
     $a=array($_GET["person_id"]);
     
     $consult = $MP_pdo->prepare($query_datos);
-    $consult->execute (array());
+    $consult->execute ($a);
     $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
     
     $usuario=$rows[0];
@@ -228,7 +228,7 @@ function MP_my_datosRasoelectronic()
             break;
         //falta poner las opciones de actualizar, que llama a la funcion de update creada anteriormente
         case "actualizar":
-            MP_Update_FormRasoelectronic($MP_user,$user_email);
+            MP_Update_FormRasoelectronic();
             break;
         case "registrar":
             if (count($_REQUEST) < 4) { //Al ser un parámetro más, incrementamos el num de parámetros
