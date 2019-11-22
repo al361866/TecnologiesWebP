@@ -90,7 +90,65 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
 }
 
 //funcion con el formulario para modificar los datos de los usuarios
+function MP_Update_FormRasoelectronic($MP_user , $user_email)
+{//formulario actualizar datos de $user_email
+    ?>
+   
+    <h1>Modificación de perfil </h1>
+    <form class="fom_usuario" action="?action=my_datosRasoelectronic&proceso=update&person_id=<?php print _$GET["person_id"] ?>" method="POST" enctype="multipart/form-data">
+        <label class="titulo_label" for="clienteMail">Tu correo</label>
+        <br/>
+        <input type="text" name="clienteMail"  size="20" maxlength="25" value="<?php print _$GET["user_mail"]?>"
+        readonly />
+        <br/>
+        <legend class="titulo_legend">Datos básicos</legend>
+        <label class="titulo_label" for="nombre">Nombre</label>
+        <br/>
+        <input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print _$GET["userName"] ?>" />
+        <br/>
+        <label class="titulo_label" for="email">Email</label>
+        <br/>
+        <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print _$GET["email"] ?>"/>
+        <br/>
+        <br>
+        <label class="titulo_label" for="foto_file">Foto actual</label>
+        <img id="img_foto" src=<?php print _GET["$foto"] ?> class="Foto">
+        <br>
+        <label class="titulo_label" for="foto_file">Foto nueva</label>
+        <img id="img_foto" src="" class="Foto">
+        <br>
+        <input id="foto" class="selector_imagen" type="file" name="foto_file" class="item_requerid">
 
+        <br/>
+        <br>
+        <input class="boton_undo" type="submit" value="Actualizar">
+        <input class="boton_undo" type="reset" value="Deshacer">
+    </form>
+    <script type="text/javascript" defer charset="utf-8">
+
+      function mostrarFoto(file, imagen) {
+      //carga la imagen de file en el elemento src imagen
+         var reader = new FileReader();
+         reader.addEventListener("load", function () {
+            imagen.src = reader.result;
+         });
+         reader.readAsDataURL(file);
+      }
+
+      function ready() {
+         var fichero = document.querySelector("#foto");
+         var imagen  = document.querySelector("#img_foto");
+      //escuchamos evento selección nuevo fichero.
+         fichero.addEventListener("change", function (event) {
+            mostrarFoto(this.files[0], imagen);
+         });
+      }
+
+      ready();
+
+   </script>
+<?php
+}
 //CONTROLADOR
 //Esta función realizará distintas acciones en función del valor del parámetro
 //$_REQUEST['proceso'], o sea se activara al llamar a url semejantes a 
@@ -113,7 +171,10 @@ function MP_my_datosRasoelectronic()
     echo '<div class="wrap">';
 
     switch ($_REQUEST['proceso']) {
-        //falta poner las opciones de actualizar, que llamara a la funcion creada previamente
+        //falta poner las opciones de actualizar, que llama a la funcion de update creada anteriormente
+        case "actualizar":
+            MP_Update_FormRasoelectronic($MP_user,$user_email);
+            break;
         //funcion de borrar
         case "delete":
             $query = "DELETE   FROM   $table WHERE person_id =(?)";
@@ -123,6 +184,36 @@ function MP_my_datosRasoelectronic()
             else wp_redirect(admin_url( 'admin-post.php?action=my_datosRasoelectronic&proceso=listar'));
             break;
         //funcion de update
+        case "update":
+             if (count($_REQUEST) < 4) { //Al ser un parámetro más, incrementamos el num de parámetros
+                print ("No has rellenado el formulario correctamente");
+                return;
+            }
+            $fotoURL="";
+            $foto = "";
+            $IMAGENES_USUARIOS = '/wp-content/uploads/fotos_usuarios/';
+            $actual_path = realpath(dirname(getcwd()));//Obtener path actual
+            //echo $actual_path;
+            var_dump($_FILES);
+           
+            if(array_key_exists('foto_file', $_FILES) && $_POST['email']) {
+                $foto = $_POST['userName']."_".$_FILES['foto_file']['name'];
+                $fotoURL = $actual_path.$IMAGENES_USUARIOS.$foto;
+
+                //Creamos todo el path de la foto
+                if (move_uploaded_file($_FILES['foto_file']['tmp_name'], $fotoURL))
+                    { echo "foto subida con éxito";
+                }else {echo "foto no subida";}
+            }
+
+            $query = "UPDATE $table SET (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?) WHERE $person_id=(?)";//Anyadimos campo de foto a la consulta         
+            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'],$foto );// Se anyade la consulta de la foto
+            
+            $consult = $MP_pdo->prepare($query);
+            $a=$consult->execute($a);
+            if (1>$a) {echo "InCorrecto $query";}
+            else wp_redirect(admin_url( 'admin-post.php?action=my_datosRasoelectronic&proceso=listar'));//Redireccionamos la salida para mostrar la salida
+            break;
         case "registro":
             $MP_user=null; //variable a rellenar cuando usamos modificar con este formulario
             MP_Register_FormRasoelectronic($MP_user,$user_email);
@@ -187,7 +278,7 @@ function MP_my_datosRasoelectronic()
                     }
                     }
                     //botones para modificar el cliente y borrarlo
-                    echo "<td ><a class='boton_update' href='?action=my_datosRasoelectronic&proceso=update&person_id=", 
+                    echo "<td ><a class='boton_update' href='?action=my_datosRasoelectronic&proceso=actualizar&person_id=", 
                     $row['person_id'],"'>Modificar</a></td>";
                     echo "<td><a class='boton_delete' href='?action=my_datosRasoelectronic&proceso=delete&person_id=",
                     $row['person_id'],"'>Eliminar</a></td>";
