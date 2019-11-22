@@ -93,8 +93,14 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
 function MP_Update_FormRasoelectronic($MP_user , $user_email)
 {//formulario actualizar datos de $user_email
     //Recuperación de datos
+    $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
     $query_datos = "SELECT * FROM $table WHERE $_REQUEST['person_id'];
     $a=array($_GET['person_id'] );
+    
+    $consult = $MP_pdo->prepare($query_datos);
+    $consult->execute (array());
+    
+    $usuario=$a[0];
     var_dump($a);
     ?>
    
@@ -108,11 +114,11 @@ function MP_Update_FormRasoelectronic($MP_user , $user_email)
         <legend class="titulo_legend">Datos básicos</legend>
         <label class="titulo_label" for="nombre">Nombre</label>
         <br/>
-        <input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["userName"] ?>" />
+        <input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $usuario["userName"] ?>" />
         <br/>
         <label class="titulo_label" for="email">Email</label>
         <br/>
-        <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["email"] ?>"/>
+        <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $usuario["email"] ?>"/>
         <br/>
         <br>
         <label class="titulo_label" for="foto_file">Foto actual</label>
