@@ -89,6 +89,8 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
 <?php
 }
 
+//funcion con el formulario para modificar los datos de los usuarios
+
 //CONTROLADOR
 //Esta función realizará distintas acciones en función del valor del parámetro
 //$_REQUEST['proceso'], o sea se activara al llamar a url semejantes a 
@@ -104,15 +106,16 @@ function MP_my_datosRasoelectronic()
                 //no user logged in
                 exit;
     }
-    
-    
-    
+       
     if (!(isset($_REQUEST['action'])) or !(isset($_REQUEST['proceso']))) { print("Opciones no correctas $user_email"); exit;}
 
     get_header();
     echo '<div class="wrap">';
 
     switch ($_REQUEST['proceso']) {
+        //falta poner las opciones de actualizar, que llamara a la funcion creada previamente
+        //funcion de borrar
+        //funcion de update
         case "registro":
             $MP_user=null; //variable a rellenar cuando usamos modificar con este formulario
             MP_Register_FormRasoelectronic($MP_user,$user_email);
@@ -130,9 +133,7 @@ function MP_my_datosRasoelectronic()
             var_dump($_FILES);
             if(array_key_exists('foto_file', $_FILES) && $_POST['email']) {
                 $foto = $_POST['userName']."_".$_FILES['foto_file']['name'];
-                echo "Foto: $foto '\n'";
                 $fotoURL = $actual_path.$IMAGENES_USUARIOS.$foto;
-                echo "FotoURL: $fotoURL";
 
                 //Creamos todo el path de la foto
                 if (move_uploaded_file($_FILES['foto_file']['tmp_name'], $fotoURL))
@@ -142,6 +143,7 @@ function MP_my_datosRasoelectronic()
 
             $query = "INSERT INTO $table (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?)";//Anyadimos campo de foto a la consulta         
             $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'],$foto );// Se anyade la consulta de la foto
+            
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
             if (1>$a) {echo "InCorrecto $query";}
@@ -177,11 +179,12 @@ function MP_my_datosRasoelectronic()
                         echo "<td>", $val, "</td>";
                     }
                     }
+                    //botones para modificar el cliente y borrarlo
                     print "</tr>";
                 }
                 print "</table></div>";
             }
-            else{echo "No existen valores";}
+            else{echo "No existen usuarios";}
             break;
         default:
             print "Opción no correcta";
