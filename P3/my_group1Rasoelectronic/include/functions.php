@@ -278,11 +278,10 @@ function hook_css() {
                 font-family: helvetica !important ;
                 font-size: 25px !important ;
                 font-style: italic !important ;
-                color: black !important ;
+                color: red !important ;
                 background-color: white !important ;
                 border-radius: 10px !important ;
                 border: 2px black !important ;
-               opacity: 0.9 !important ;
               }
               .boton_undo:hover{
                 opacity: 0.9 !important ;
