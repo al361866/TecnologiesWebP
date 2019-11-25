@@ -125,6 +125,7 @@ function MP_Update_FormRasoelectronic($user_email)
         <br/>
         <br>
         <label class="titulo_label" for="foto_file">Foto</label>
+	<p> La mida de la nova foto no pot superar els 250 kb i el format ha de ser jpg </p>
         <img id="img_foto" src=<?php print $fotoURL ?> class="Foto">
         <br>
         <input id="foto" class="selector_imagen" type="file" name="foto_file" class="item_requerid">
@@ -141,9 +142,22 @@ function MP_Update_FormRasoelectronic($user_email)
       //carga la imagen de file en el elemento src imagen
          var reader = new FileReader();
          reader.addEventListener("load", function () {
-            imagen.src = reader.result;
-         });
-         reader.readAsDataURL(file);
+            if (!(/\.(jpg)$/i).test(file.name)) {
+		alert('El archivo a adjuntar no es una imagen valida .jpg');
+		imagen.src = "";
+		document.querySelector("#foto").value="";
+	    }else {
+		if (file.size > 250000){
+			alert('El peso de la imagen no puede exceder los 250kb y tu imagen tiene: ');
+			imagen.src = "";
+			document.querySelector("#foto").value="";
+		}else {
+			imagen.src = reader.result;
+			alert('Imagen correcta.');            
+		    }
+		}
+        });
+ reader.readAsDataURL(file);
       }
 
       function ready() {
