@@ -103,6 +103,8 @@ function MP_Update_FormRasoelectronic($user_email)
     $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
     
     $usuario=$rows[0];
+    $fotoURL = "../wp-content/uploads/fotos_usuarios/" . $usuario["foto_file"];
+
     ?>
    
     <h1>Modificación de perfil </h1>
@@ -115,7 +117,7 @@ function MP_Update_FormRasoelectronic($user_email)
         <legend class="titulo_legend">Datos básicos</legend>
         <label class="titulo_label" for="nombre">Nombre</label>
         <br/>
-        <input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $usuario["userName"] ?>" />
+        <input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $usuario["nombre"] ?>" />
         <br/>
         <label class="titulo_label" for="email">Email</label>
         <br/>
@@ -123,7 +125,7 @@ function MP_Update_FormRasoelectronic($user_email)
         <br/>
         <br>
         <label class="titulo_label" for="foto_file">Foto actual</label>
-        <img id="img_foto" src=<?php print $_FILES["$foto"]["name"] ?> class="Foto">
+        <img id="img_foto" src=<?php print $fotoURL ?> class="Foto">
         <br>
         <label class="titulo_label" for="foto_file">Foto nueva</label>
         <img id="img_foto" src="" class="Foto">
