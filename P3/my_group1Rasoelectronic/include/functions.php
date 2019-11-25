@@ -127,10 +127,11 @@ function MP_Update_FormRasoelectronic($user_email)
         <label class="titulo_label" for="foto_file">Foto actual</label>
         <img id="img_foto" src=<?php print $fotoURL ?> class="Foto">
         <br>
+        <input id="foto" class="selector_imagen" type="file" name="foto_file" class="item_requerid">
+
         <label class="titulo_label" for="foto_file">Foto nueva</label>
         <img id="img_foto" src="" class="Foto">
         <br>
-        <input id="foto" class="selector_imagen" type="file" name="foto_file" class="item_requerid">
 
         <br/>
         <br>
@@ -202,9 +203,7 @@ function MP_my_datosRasoelectronic()
             $foto = "";
             $IMAGENES_USUARIOS = '/wp-content/uploads/fotos_usuarios/';
             $actual_path = realpath(dirname(getcwd()));//Obtener path actual
-            //echo $actual_path;
-            var_dump($_FILES);
-           
+            //echo $actual_path;           
             if(array_key_exists('foto_file', $_FILES) && $_POST['email']) {
                 $foto = $_POST['userName']."_".$_FILES['foto_file']['name'];
                 $fotoURL = $actual_path.$IMAGENES_USUARIOS.$foto;
@@ -216,8 +215,8 @@ function MP_my_datosRasoelectronic()
             }
 
             
-            $query = "UPDATE $table SET (nombre, email,clienteMail,foto_file) VALUES (?,?,?,?) WHERE $person_id=(?)";//Anyadimos campo de foto a la consulta         
-            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'],$foto );// Se anyade la consulta de la foto
+			$query = "UPDATE $table SET nombre=(?), email=(?), clienteMail=(?), foto_file=(?) WHERE  person_id =(?)";
+            $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'],$foto, $_GET["person_id"]);// Se anyade la consulta de la foto
             
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
