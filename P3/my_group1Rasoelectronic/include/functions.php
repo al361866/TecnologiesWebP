@@ -54,6 +54,8 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
 
         <br>
         <label class="titulo_label" for="foto_file">Foto</label>
+	<p> La mida de la nova foto no pot superar els 250 kb i el format ha de ser jpg </p>
+
         <img id="img_foto" src="" class="Foto">
         <br>
         <input id="foto" class="selector_imagen" type="file" name="foto_file" class="item_requerid">
