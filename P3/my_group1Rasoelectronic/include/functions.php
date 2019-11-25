@@ -124,13 +124,10 @@ function MP_Update_FormRasoelectronic($user_email)
         <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $usuario["email"] ?>"/>
         <br/>
         <br>
-        <label class="titulo_label" for="foto_file">Foto actual</label>
+        <label class="titulo_label" for="foto_file">Foto</label>
         <img id="img_foto" src=<?php print $fotoURL ?> class="Foto">
         <br>
         <input id="foto" class="selector_imagen" type="file" name="foto_file" class="item_requerid">
-
-        <label class="titulo_label" for="foto_file">Foto nueva</label>
-        <img id="img_foto" src="" class="Foto">
         <br>
 
         <br/>
