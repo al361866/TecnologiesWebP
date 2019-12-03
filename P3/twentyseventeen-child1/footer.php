@@ -46,6 +46,11 @@
 				<h5>Copyright Rasoelectronic</h5>
 				<h5>Adrián Sorribas Segura & Ferran Ramia Tena</h5>
 
+				<aside>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6056.990287900814!2d-0.10588382297647608!3d40.61896116116939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5f826921eb2015%3A0x44dc51618342d7d1!2sCastillo%20de%20Morella!5e0!3m2!1ses!2ses!4v1573838706596!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+<iframe src="https://www.tiempo.com/wimages/fotoadb08536f13da0e4bc0282c889aed16b.png" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+</aside>
+				
 			</div><!-- .wrap -->
 		</footer><!-- #colophon -->
 	</div><!-- .site-content-contain -->
