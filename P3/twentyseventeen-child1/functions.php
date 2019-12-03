@@ -22,9 +22,11 @@ function add_theme_scripts(){
 
 //codi per a afegir el joc
 function shortcode_ejercicio8() {
-  return '<h3 class="centra"> Juego Ejercicio 8</h3>
+  return '<div class="centra"> 
+          <h3> Juego Ejercicio 8</h3>
           <canvas id="sketchpad" width="240" height="160" style="background-color: #ccffcc;"></canvas>
           <p>	<button id="limpiar"> LIMPIAR</button></p>
+          </div>
   ';
 }
 add_shortcode('juego_ej8', 'shortcode_ejercicio8');
