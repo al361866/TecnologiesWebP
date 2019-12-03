@@ -117,6 +117,10 @@ div.foto {
 
 .imagen:hover {filter: opacity(.5);}
 
+.centra {
+   text-align: center;
+}
+
 .foto:hover{
 	border-radius:50%;
 	-webkit-border-radius:50%;
