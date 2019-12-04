@@ -24,12 +24,26 @@ function shortcode_ejercicio8() {
   ';
 }
 
+//codi per a afegir el joc extra
+function shortcode_ejercicio10() {
+  return '<div class="centra"> 
+          <h3> Juego Ejercicio 10</h3>
+          <canvas id="sketchpad" width="240" height="160" style="background-color: #ccffcc;"></canvas>
+          <p>	<button id="limpiar"> EMPEZAR</button></p>
+          </div>
+  ';
+}
+
 function add_theme_scripts(){
    $deps=array();
     wp_enqueue_script( 'ej8', get_stylesheet_directory_uri().'/js/ej8.js',$deps,true,true);
+    wp_enqueue_script( 'ej10', get_stylesheet_directory_uri().'/js/ej10.js',$deps,true,true);
+
 }
 
 add_shortcode('juego_ej8', 'shortcode_ejercicio8');
+add_shortcode('juego_ej10', 'shortcode_ejercicio10');
+
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 
 ?>
