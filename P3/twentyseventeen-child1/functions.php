@@ -14,12 +14,6 @@ add_filter("the_content", "mfp_Fix_Text_Spacing");
   return $the_New_Post;
   }
 
-function add_theme_scripts(){
-  $deeps = array();
- wp_enqueue_script( 'ej8', get_stylesheet_directory_uri().'/js/ej8.js',$deeps,true);
-}
-
-
 //codi per a afegir el joc
 function shortcode_ejercicio8() {
   return '<div class="centra"> 
@@ -29,6 +23,11 @@ function shortcode_ejercicio8() {
           </div>
   ';
 }
+
+function add_theme_scripts(){
+    wp_enqueue_script( 'juego_ej8', get_stylesheet_directory_uri().'/js/ej8.js',true,true);
+}
+
 add_shortcode('juego_ej8', 'shortcode_ejercicio8');
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 
