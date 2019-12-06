@@ -40,7 +40,7 @@ echo $args['before_title'] . $title . $args['after_title'];
 
 // Aquí es donde debemos introducir el código que queremos que se ejecute
 echo '684654325' ;
-echo '964852367'
+echo '964852367' ;
 echo $args['after_widget'];
 }
 		
