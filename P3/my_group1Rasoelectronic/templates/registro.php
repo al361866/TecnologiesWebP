@@ -1,4 +1,4 @@
->!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="/wp-content/plugins/my_group1Rasoelectronic/css/style.css">
