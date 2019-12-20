@@ -7,8 +7,8 @@
     $a=$consult->execute($a);
     $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
 	
-    $user = $rows[0];
-    $fotoURL = "../wp-content/uploads/fotos/" . $user["foto_file"];
+    $usuario = $rows[0];
+    $fotoURL = "../wp-content/uploads/fotos_usuario/" . $usuario["foto_file"];
 ?>
 
 <!DOCTYPE html>
