@@ -251,11 +251,12 @@ function MP_my_datosRasoelectronic()
             break;
         case "registro":
             $MP_user=null; //variable a rellenar cuando usamos modificar con este formulario
-            MP_Register_FormRasoelectronic($MP_user,$user_email);
+            include_once(plugin_dir_path(__FILE__) . '../templates/registro.php');
+		    //MP_Register_FormRasoelectronic($MP_user,$user_email);
             break;
-        //falta poner las opciones de actualizar, que llama a la funcion de update creada anteriormente
         case "actualizar":
-            MP_Update_FormRasoelectronic($user_email);
+	    include_once(plugin_dir_path(__FILE__) . '../templates/update.php');
+            //MP_Update_FormRasoelectronic($user_email);
             break;
         case "registrar":
             if (count($_REQUEST) < 4) { //Al ser un parámetro más, incrementamos el num de parámetros
@@ -286,6 +287,13 @@ function MP_my_datosRasoelectronic()
             if (1>$a) {echo "InCorrecto $query";}
             else wp_redirect(admin_url( 'admin-post.php?action=my_datosRasoelectronic&proceso=listar'));//Redireccionamos la salida para mostrar la salida
             break;
+		    
+ 	case "listar":
+            //Listado amigos o de todos si se es administrador.
+            include_once(plugin_dir_path(__FILE__) . '../templates/listar.php');
+            break;
+		    
+	//listar json, falte modificar
         case "listar":
             //Listado amigos o de todos si se es administrador.
             $a=array();
@@ -342,11 +350,12 @@ function MP_my_datosRasoelectronic()
         remove_action('wp_footer', 'wp_admin_bar_render', 1000);
     }
 
-    get_footer();
+    if (!(isset($_REQUEST['partial']))) {
+       get_footer();
+   }
+	
+	
     }
    ?>
       
-   <?php
-}
-add_action('wp_head', 'hook_css');
-?>
+
