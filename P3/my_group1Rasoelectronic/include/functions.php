@@ -168,7 +168,7 @@ function my_init_script(){
 	wp_enqueue_script('registroAsincrono', '/wp-content/plugins/my_group1Rasoelectronic/js/registroAsincrono.js', true);
     }
 
-add_action('wp_enqueue_scripts', 'my_init_script');
+add_action('init', 'my_init_script');
 
 	
     if (!(isset($_REQUEST['partial']))) {
