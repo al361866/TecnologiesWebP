@@ -35,6 +35,7 @@ function MP_Ejecutar_crearTRasoelectronic(){
     MP_CrearTRasoelectronic("A_GrupoCliente000");
 }
 //add_action('admin_post_nopriv_my_datos', 'MP_my_datos'); //no autentificados
+add_action('wp_enqueue_scripts', 'my_init_script');
 add_action('admin_post_my_datosRasoelectronic', "MP_my_datosRasoelectronic"); 
 
 ?>
