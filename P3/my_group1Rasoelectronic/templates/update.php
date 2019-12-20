@@ -14,8 +14,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/wp-content/plugins/my_groupEustaquioShops/css/style.css">
-        <script src="/wp-content/plugins/my_groupEustaquioShops/js/gestionFotos.js" async defer></script>
+        <link rel="stylesheet" type="text/css" href="/wp-content/plugins/my_group1Rasoelectronic/css/style.css">
+        <script src="/wp-content/plugins/my_group1Rasoelectronic/js/gestionFotos.js" async defer></script>
     </head>
     <body>
         
