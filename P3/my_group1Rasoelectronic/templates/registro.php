@@ -17,12 +17,12 @@
         <label class="titulo_label" for="nombre">Nombre</label>
         <br/>
         <input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["userName"] ?>"
-        placeholder="Miguel Cervantes" />
+        placeholder="Miguel Cervantes" required />
         <br/>
         <label class="titulo_label" for="email">Email</label>
         <br/>
         <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["email"] ?>"
-        placeholder="kiko@ic.es" />
+        placeholder="kiko@ic.es" required />
         <br/>
 
         <br>
@@ -32,7 +32,7 @@
 
 		<img id="img_foto" src="" class="Foto">
 		<br>
-		<input id="foto" class="selector_imagen" type="file" name="foto_file" class="item_requerid">
+		<input id="foto" class="selector_imagen" type="file" name="foto_file" class="item_requerid" required>
 
 		<br/>
 	</div>
