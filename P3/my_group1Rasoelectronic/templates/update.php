@@ -15,7 +15,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="/wp-content/plugins/my_group1Rasoelectronic/css/style.css">
-        <script src="/wp-content/plugins/my_group1Rasoelectronic/js/gestionFotos.js" async defer></script>
+<!--         <script src="/wp-content/plugins/my_group1Rasoelectronic/js/gestionFotos.js" async defer></script> -->
     </head>
     <body>
         
