@@ -161,6 +161,14 @@ function MP_my_datosRasoelectronic()
         remove_action('wp_footer', 'wp_admin_bar_render', 1000);
     }
 
+	
+    function my_init_script(){
+    	wp_enqueue_script('gestionFotos'); 
+	wp_enqueue_script('registroAsincrono');
+    }
+
+    add_action('init', 'my_init_script');
+	
     if (!(isset($_REQUEST['partial']))) {
        get_footer();
    }
