@@ -37,8 +37,9 @@ function MP_Ejecutar_crearTRasoelectronic(){
 //add_action('admin_post_nopriv_my_datos', 'MP_my_datos'); //no autentificados
 
 function my_init_script(){
-    wp_enqueue_script('gestionFotos', '/wp-content/plugins/my_group1Rasoelectronic/js/gestionFotos.js', true);	
-	wp_enqueue_script('registroAsincrono', '/wp-content/plugins/my_group1Rasoelectronic/js/registroAsincrono.js', true);
+	$deps=array();
+    wp_enqueue_script('gestionFotos', '/wp-content/plugins/my_group1Rasoelectronic/js/gestionFotos.js',$deps,true, true);	
+	wp_enqueue_script('registroAsincrono', '/wp-content/plugins/my_group1Rasoelectronic/js/registroAsincrono.js',$deps,true, true);
     }
 add_action('wp_enqueue_scripts', 'my_init_script');
 add_action('admin_post_my_datosRasoelectronic', "MP_my_datosRasoelectronic"); 
