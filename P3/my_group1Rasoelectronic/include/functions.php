@@ -16,12 +16,6 @@ if ( ! defined( 'WPINC' ) ) exit;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-function my_init_script(){
-    	wp_enqueue_script('gestionFotos', get_stylesheet_directory_uri() . '/js/gestionFotos.js', true);	
-	wp_enqueue_script('registroAsincrono', get_stylesheet_directory_uri() . '/js/registroAsincrono.js', true);
-    }
-
-    add_action('wp_enqueue_scripts', 'my_init_script');
 
 
 //Funcion instalación plugin. Crea tabla
@@ -167,6 +161,15 @@ function MP_my_datosRasoelectronic()
         // for the front-end
         remove_action('wp_footer', 'wp_admin_bar_render', 1000);
     }
+
+	
+function my_init_script(){
+    	wp_enqueue_script('gestionFotos', '/wp-content/plugins/my_group1Rasoelectronic/js/gestionFotos.js', true);	
+	wp_enqueue_script('registroAsincrono', '/wp-content/plugins/my_group1Rasoelectronic/js/registroAsincrono.js', true);
+    }
+
+add_action('wp_enqueue_scripts', 'my_init_script');
+
 	
     if (!(isset($_REQUEST['partial']))) {
        get_footer();
