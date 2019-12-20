@@ -35,6 +35,7 @@ function MP_Ejecutar_crearTRasoelectronic(){
     MP_CrearTRasoelectronic("A_GrupoCliente000");
 }
 //add_action('admin_post_nopriv_my_datos', 'MP_my_datos'); //no autentificados
+
 function my_init_script(){
     wp_enqueue_script('gestionFotos', '/wp-content/plugins/my_group1Rasoelectronic/js/gestionFotos.js', true);	
 	wp_enqueue_script('registroAsincrono', '/wp-content/plugins/my_group1Rasoelectronic/js/registroAsincrono.js', true);
