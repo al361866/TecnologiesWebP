@@ -17,10 +17,6 @@ if ( ! defined( 'WPINC' ) ) exit;
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
-
-  if (!(isset($_REQUEST['partial']))) {
-       get_header();
-   }
 //Funcion instalación plugin. Crea tabla
 function MP_CrearTRasoelectronic($tabla){
     
