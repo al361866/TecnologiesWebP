@@ -17,8 +17,6 @@ if ( ! defined( 'WPINC' ) ) exit;
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
-
-
 //Funcion instalación plugin. Crea tabla
 function MP_CrearTRasoelectronic($tabla){
     
