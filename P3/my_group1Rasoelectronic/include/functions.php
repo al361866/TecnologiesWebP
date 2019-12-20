@@ -164,8 +164,8 @@ function MP_my_datosRasoelectronic()
 
 	
 function my_init_script(){
-    	wp_enqueue_script('gestionFotos', '/wp-content/plugins/my_group1Rasoelectronic/js/gestionFotos.js', true);	
-	wp_enqueue_script('registroAsincrono', '/wp-content/plugins/my_group1Rasoelectronic/js/registroAsincrono.js', true);
+    	wp_enqueue_script('gestionFotos', /wp-content/plugins/my_group1Rasoelectronic/js/gestionFotos.js, true);	
+	wp_enqueue_script('registroAsincrono', /wp-content/plugins/my_group1Rasoelectronic/js/registroAsincrono.js, true);
     }
 
 add_action('wp_enqueue_scripts', 'my_init_script');
