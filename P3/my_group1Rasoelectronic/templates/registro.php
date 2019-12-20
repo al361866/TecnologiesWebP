@@ -2,8 +2,8 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="/wp-content/plugins/my_group1Rasoelectronic/css/style.css">
-        <script src="/wp-content/plugins/my_group1Rasoelectronic/js/gestionFotos.js" async defer></script>
-        <script src="/wp-content/plugins/my_group1Rasoelectronic/js/registroAsincrono.js" async defer></script>
+<!--         <script src="/wp-content/plugins/my_group1Rasoelectronic/js/gestionFotos.js" async defer></script>
+        <script src="/wp-content/plugins/my_group1Rasoelectronic/js/registroAsincrono.js" async defer></script> -->
     </head>
     <body>
          <h1>Gestión de Usuarios </h1>
