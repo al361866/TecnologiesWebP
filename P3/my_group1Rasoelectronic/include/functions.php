@@ -163,11 +163,11 @@ function MP_my_datosRasoelectronic()
 
 	
     function my_init_script(){
-    	wp_enqueue_script('gestionFotos'); 
-	wp_enqueue_script('registroAsincrono');
+    	wp_enqueue_script('gestionFotos', get_stylesheet_directory_uri().'/js/gestionFotos.js', true);	
+	wp_enqueue_script('registroAsincrono', get_stylesheet_directory_uri().'/js/registroAsincrono.js', true);
     }
 
-    add_action('init', 'my_init_script');
+    add_action('wp_enqueue_scripts', 'my_init_script');
 	
     if (!(isset($_REQUEST['partial']))) {
        get_footer();
