@@ -27,46 +27,7 @@ function MP_CrearTRasoelectronic($tabla){
     $consult = $MP_pdo->prepare($query);
     $consult->execute (array());
 }
-
-
-function MP_Register_FormRasoelectronic($MP_user , $user_email)
-{//formulario registro amigos de $user_email
-    ?>
    
-    <h1>Gestión de Usuarios </h1>
-    <form class="fom_usuario" action="?action=my_datosRasoelectronic&proceso=registrar" method="POST" enctype="multipart/form-data">
-        <label class="titulo_label" for="clienteMail">Tu correo</label>
-        <br/>
-        <input type="text" name="clienteMail"  size="20" maxlength="25" value="<?php print $user_email?>"
-        readonly />
-        <br/>
-        <legend class="titulo_legend">Datos básicos</legend>
-        <label class="titulo_label" for="nombre">Nombre</label>
-        <br/>
-        <input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["userName"] ?>"
-        placeholder="Miguel Cervantes" />
-        <br/>
-        <label class="titulo_label" for="email">Email</label>
-        <br/>
-        <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $MP_user["email"] ?>"
-        placeholder="kiko@ic.es" />
-        <br/>
-
-        <br>
-        <label class="titulo_label" for="foto_file">Foto</label>
-	<p> La mida de la nova foto no pot superar els 250 kb i el format ha de ser jpg </p>
-
-        <img id="img_foto" src="" class="Foto">
-        <br>
-        <input id="foto" class="selector_imagen" type="file" name="foto_file" class="item_requerid">
-
-        <br/>
-        <br>
-        <input class="boton_undo" type="submit" value="Enviar">
-        <input class="boton_undo" type="reset" value="Deshacer">
-    </form>
-    <script type="text/javascript" defer charset="utf-8">
-
       function mostrarFoto(file, imagen) {
       //carga la imagen de file en el elemento src imagen
          var reader = new FileReader();
@@ -104,54 +65,6 @@ function MP_Register_FormRasoelectronic($MP_user , $user_email)
 <?php
 }
 
-//funcion con el formulario para modificar los datos de los usuarios
-function MP_Update_FormRasoelectronic($user_email)
-{//formulario actualizar datos de $user_email
-    global $table;
-    //Recuperación de datos
-    $MP_pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASSWORD); 
-    $query_datos = "SELECT * FROM $table WHERE person_id=?";
-    $a=array($_GET["person_id"]);
-    
-    $consult = $MP_pdo->prepare($query_datos);
-    $consult->execute ($a);
-    $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
-    
-    $usuario=$rows[0];
-    $fotoURL = "../wp-content/uploads/fotos_usuarios/" . $usuario["foto_file"];
-
-    ?>
-   
-    <h1>Modificación de perfil </h1>
-    <form class="fom_usuario" action="?action=my_datosRasoelectronic&proceso=update&person_id=<?php print $_GET["person_id"] ?>" method="POST" enctype="multipart/form-data">
-        <label class="titulo_label" for="clienteMail">Tu correo</label>
-        <br/>
-        <input type="text" name="clienteMail"  size="20" maxlength="25" value="<?php print $user_email?>"
-        readonly />
-        <br/>
-        <legend class="titulo_legend">Datos básicos</legend>
-        <label class="titulo_label" for="nombre">Nombre</label>
-        <br/>
-        <input type="text" name="userName" class="item_requerid" size="20" maxlength="25" value="<?php print $usuario["nombre"] ?>" />
-        <br/>
-        <label class="titulo_label" for="email">Email</label>
-        <br/>
-        <input type="text" name="email" class="item_requerid" size="20" maxlength="25" value="<?php print $usuario["email"] ?>"/>
-        <br/>
-        <br>
-        <label class="titulo_label" for="foto_file">Foto</label>
-	<p> La mida de la nova foto no pot superar els 250 kb i el format ha de ser jpg </p>
-        <img id="img_foto" src=<?php print $fotoURL ?> class="Foto">
-        <br>
-        <input id="foto" class="selector_imagen" type="file" name="foto_file" class="item_requerid">
-        <br>
-
-        <br/>
-        <br>
-        <input class="boton_undo" type="submit" value="Actualizar">
-        <input class="boton_undo" type="reset" value="Deshacer">
-    </form>
-    <script type="text/javascript" defer charset="utf-8">
 
       function mostrarFoto(file, imagen) {
       //carga la imagen de file en el elemento src imagen
@@ -207,7 +120,9 @@ function MP_my_datosRasoelectronic()
        
     if (!(isset($_REQUEST['action'])) or !(isset($_REQUEST['proceso']))) { print("Opciones no correctas $user_email"); exit;}
 
-    get_header();
+    if (!(isset($_REQUEST['partial']))) {
+        get_header();
+    }
     echo '<div class="wrap">';
 
     switch ($_REQUEST['proceso']) {
@@ -241,7 +156,7 @@ function MP_my_datosRasoelectronic()
             }
 
             
-			$query = "UPDATE $table SET nombre=(?), email=(?), clienteMail=(?), foto_file=(?) WHERE  person_id =(?)";
+	    $query = "UPDATE $table SET nombre=(?), email=(?), clienteMail=(?), foto_file=(?) WHERE  person_id =(?)";
             $a=array($_REQUEST['userName'], $_REQUEST['email'],$_REQUEST['clienteMail'],$foto, $_GET["person_id"]);// Se anyade la consulta de la foto
             
             $consult = $MP_pdo->prepare($query);
@@ -294,46 +209,18 @@ function MP_my_datosRasoelectronic()
             break;
 		    
 	//listar json, falte modificar
-        case "listar":
-            //Listado amigos o de todos si se es administrador.
-            $a=array();
+        case "listarjson":
+             $a=array();
             if (current_user_can('administrator')) {$query = "SELECT     * FROM       $table ";}
-            else {$campo="clienteMail";
+            else {
+		$campo="clienteMail";
                 $query = "SELECT     * FROM  $table      WHERE $campo =?";
                 $a=array( $user_email);
- 
             } 
-
             $consult = $MP_pdo->prepare($query);
             $a=$consult->execute($a);
-            $rows=$consult->fetchAll(PDO::FETCH_ASSOC);
-            if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
-                print '<div><table>';
-                foreach ( array_keys($rows[0])as $key) {
-                    echo "<td>", $key,"</td>";
-                }
-                foreach ($rows as $row) {
-                    print "<tr>";
-                    foreach ($row as $key => $val) {
-                        if($key == "foto_file"){
-                            $fotoURL = "../wp-content/uploads/fotos_usuarios/".$val; //Mostrar la salida del campo foto
-                            echo "<td>";
-                            echo "<img class='Foto' src=$fotoURL>";
-                            //echo "<td>";
-                        } else {
-                        echo "<td>", $val, "</td>";
-                    }
-                    }
-                    //botones para modificar el cliente y borrarlo
-                    echo "<td ><a class='boton_update' href='?action=my_datosRasoelectronic&proceso=actualizar&person_id=", 
-                    $row['person_id'],"'>Modificar</a></td>";
-                    echo "<td><a class='boton_delete' href='?action=my_datosRasoelectronic&proceso=delete&person_id=",
-                    $row['person_id'],"'>Eliminar</a></td>";
-                    print "</tr>";
-                }
-                print "</table></div>";
-            }
-            else{echo "No existen usuarios";}
+            $rows=$consult->fetchAll(PDO::FETCH_ASSOC);  
+            echo json_encode($rows);
             break;
         default:
             print "Opción no correcta";
