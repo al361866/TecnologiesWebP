@@ -19,13 +19,13 @@ async function enviaForm(evento) {
         
         if (!response.ok) {
            if (window.confirm('El usuario no se ha podido añadir. ¿Quieres volver a intentarlo?')) {
-                window.location.href='https://eustaquioshops.000webhostapp.com/wp-admin/admin-post.php?action=my_datosEustaquioShops&proceso=registro';
+                window.location.href='https://rasoelectronic.000webhostapp.com/wp-admin/admin-post.php?action=my_datosRasoelectronic&proceso=registro';
             }
             window.alert(". ");     
         } else {
             const result = await response.text();
              if (window.confirm('"Usuario añadido con éxito. ¿Ir al listado de amigos?')) {
-                window.location.href='https://eustaquioshops.000webhostapp.com/wp-admin/admin-post.php?action=my_datosEustaquioShops&proceso=listar';
+                window.location.href='https://rasoelectronic.000webhostapp.com/wp-admin/admin-post.php?action=my_datosRasoelectronic&proceso=listar';
             }
 
         }
