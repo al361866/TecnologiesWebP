@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="/wp-content/plugins/my_group1Rasoelectronic/js/listadoAsincrono.js" async defer></script>
         <link rel="stylesheet" type="text/css" href="/wp-content/plugins/my_group1Rasoelectronic/css/style.css">
     </head>
     <body>
