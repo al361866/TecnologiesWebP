@@ -47,23 +47,22 @@ function MP_my_datosRasoelectronic()
 
 	
 //listar json, se añade aqui porque tiene un head distinto
- if ($_REQUEST['proceso'] == "listarjson") {
-	 header('Content-Type:application/json');
-         $a=array();
-         if (current_user_can('administrator')) {$query = "SELECT     * FROM       $table ";}
-         else {
-	   $campo="clienteMail";
-           $query = "SELECT     * FROM  $table      WHERE $campo =?";
-           $a=array( $user_email);
-            } 
-         $consult = $MP_pdo->prepare($query);
-         $a=$consult->execute($a);
-         $rows=$consult->fetchAll(PDO::FETCH_ASSOC);  
-         $url = "/wp-content/plugins/my_group1Rasoelectronic/templates/TemplateTableJson.html";
-	 $dict = array("datos" => $rows, "template" => $url);
-	 echo json_encode($dict);
-	 return;   
- }
+    if ($_REQUEST['proceso'] == "listarjson") { 
+	  header('Content-Type:application/json');
+	  $a=array();
+	  if (current_user_can('administrator')) {$query = "SELECT     * FROM       $table ";}
+	  else {$campo="clienteMail";
+	   $query = "SELECT     * FROM  $table      WHERE $campo =?";
+	   $a=array( $user_email);
+	    } 
+	  $consult = $MP_pdo->prepare($query);
+	  $a=$consult->execute($a);
+	  $rows=$consult->fetchAll(PDO::FETCH_ASSOC);  
+	  $url = "/wp-content/plugins/my_group1Rasoelectronic/templates/TemplateTableJson.html";
+	  $datos = array("datos" => $rows, "template" => $url);
+	  echo json_encode($datos);
+	  return;   
+    }
     if (!(isset($_REQUEST['partial']))) {
         get_header();
     }
