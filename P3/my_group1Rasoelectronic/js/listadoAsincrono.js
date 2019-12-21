@@ -1,4 +1,4 @@
-function cargarTemplate(datos) {
+function loadTemplate(datos) {
 			// Test to see if the browser supports the HTML template element by checking
 			// for the presence of the template element's content attribute.
 			if (document.querySelector('template').content) {
@@ -27,7 +27,7 @@ function cargarTemplate(datos) {
 			}
 }
 
-async function pideTemplate(template, datos) {
+async function llamarTemplate(template, datos) {
     let init2 = {
         url: template,
         method: 'get'
@@ -40,11 +40,11 @@ async function pideTemplate(template, datos) {
         const html = await response2.text();
 	console.log(html);
         document.querySelector('#content').innerHTML=html;
-        cargarTemplate(datos);
+        loadTemplate(datos);
     }
 }
 
-async function pideListado(evento) {
+async function llamarListado(evento) {
     try {
         evento.preventDefault();
         let url = "/wp-admin/admin-post.php?action=my_datosRasoelectronic&proceso=listarjson";
@@ -59,14 +59,14 @@ async function pideListado(evento) {
            alert("Error no se ha podido cargar el json"); 
         } else {
             const result = await response.json();
-            pideTemplate(result.template, result.datos);
+            llamarTemplate(result.template, result.datos);
         }   
    } catch (error) {
         console.log(error);
    }
 }
 
-var listado = document.querySelector("#listadoJSON");
+var listado = document.querySelector("#listaJson");
 listado.addEventListener("click", function (event) {
-     pideListado(event);
+     llamarListado(event);
 });
