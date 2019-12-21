@@ -47,7 +47,7 @@ async function pideTemplate(template, datos) {
 async function pideListado(evento) {
     try {
         evento.preventDefault();
-        let url = "/wp-admin/admin-post.php?action=my_group1Rasoelectronic&proceso=listarjson";
+        let url = "/wp-admin/admin-post.php?action=my_datosRasoelectronic&proceso=listarjson";
         let init = {
             url: url,
             method: 'get'
