@@ -66,7 +66,7 @@ async function llamarListado(evento) {
    }
 }
 
-var listado = document.querySelector("#listaJson");
+var listado = document.querySelector("#listadoJSON");
 listado.addEventListener("click", function (event) {
      llamarListado(event);
 });
