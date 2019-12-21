@@ -45,6 +45,25 @@ function MP_my_datosRasoelectronic()
        
     if (!(isset($_REQUEST['action'])) or !(isset($_REQUEST['proceso']))) { print("Opciones no correctas $user_email"); exit;}
 
+	
+//listar json, se añade aqui porque tiene un head distinto
+ if ($_REQUEST['proceso'] == "listarjson") {
+	 header('Content-Type:application/json');
+         $a=array();
+         if (current_user_can('administrator')) {$query = "SELECT     * FROM       $table ";}
+         else {
+	   campo="clienteMail";
+           $query = "SELECT     * FROM  $table      WHERE $campo =?";
+           $a=array( $user_email);
+            } 
+         $consult = $MP_pdo->prepare($query);
+         $a=$consult->execute($a);
+         $rows=$consult->fetchAll(PDO::FETCH_ASSOC);  
+         $url = "/wp-content/plugins/my_group1Rasoelectronic/templates/TemplateTableJson.html";
+	 $dict = array("datos" => $rows, "template" => $url);
+	 echo json_encode($dict);
+	 return;   
+ }
     if (!(isset($_REQUEST['partial']))) {
         get_header();
     }
@@ -133,20 +152,6 @@ function MP_my_datosRasoelectronic()
             include_once(plugin_dir_path(__FILE__) . '../templates/listar.php');
             break;
 		    
-	//listar json, falte modificar
-        case "listarjson":
-             $a=array();
-            if (current_user_can('administrator')) {$query = "SELECT     * FROM       $table ";}
-            else {
-		$campo="clienteMail";
-                $query = "SELECT     * FROM  $table      WHERE $campo =?";
-                $a=array( $user_email);
-            } 
-            $consult = $MP_pdo->prepare($query);
-            $a=$consult->execute($a);
-            $rows=$consult->fetchAll(PDO::FETCH_ASSOC);  
-            echo json_encode($rows);
-            break;
         default:
             print "Opción no correcta";
         
