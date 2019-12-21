@@ -52,7 +52,7 @@ function MP_my_datosRasoelectronic()
          $a=array();
          if (current_user_can('administrator')) {$query = "SELECT     * FROM       $table ";}
          else {
-	   campo="clienteMail";
+	   $campo="clienteMail";
            $query = "SELECT     * FROM  $table      WHERE $campo =?";
            $a=array( $user_email);
             } 
