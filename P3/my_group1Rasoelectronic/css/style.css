@@ -32,93 +32,99 @@
   }
 }
 
+table{
+    font-family: "Arial", Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+ }
+
+td{
+    font-family: "Arial", Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+ }
 
 .Title {
-               text-align: center;
-               font-size: 40px;
-               font-weight: bold;
-           }
-           .Foto {
-               width: 140px;
-               height: 120px;
-               border-radius: 5px;
-               border: 2px white;
-           }
-           
-           .titulo_legend{
-              font-family: "Times New Roman", Times, serif;
-              font-size: 35px;
-              font-style: oblique;
-            }
+     text-align: center;
+     font-size: 40px;
+     font-weight: bold;
+ }
+ .Foto {
+     width: 140px;
+     height: 120px;
+     border-radius: 5px;
+     border: 2px white;
+ }
 
-            input:focus {
-              border: white 3px dotted;
-              padding: 3px;
-            }
- 
-            input:active {
-              border: 2px solid #2F4F4F;
-              padding: 2px
-            }
+ .titulo_legend{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 35px;
+    font-style: oblique;
+  }
 
-            .titulo_label {
-              font-family: "Times New Roman", Times, serif;
-              font-size: 25px;
-              font-weight: bold;
-            }
-           
-           .selector_imagen{
-                font-family: helvetica;
-                font-weight: 200;
-                font-size: 20px;
-                font-style: italic;
-                color: #5F9EA0;
-              }
+  input:focus {
+    border: white 3px dotted;
+    padding: 3px;
+  }
 
-           .boton_update{
-               padding: 3px !important ;
-                padding-left: 5px !important ;
-                padding-right: 5px !important ;
-                font-family: helvetica !important ;
-                font-size: 20px !important ;
-                font-style: italic !important ;
-                color: black !important ;
-                background-color: #6B8B23 !important ;
-                border-radius: 10px !important ;
-                border: 2px black !important ;
-           }
-           
-           .boton_delete{
-               padding: 3px !important ;
-                padding-left: 5px !important ;
-                padding-right: 5px !important ;
-                font-family: helvetica !important ;
-                font-size: 20px !important ;
-                font-style: italic !important ;
-                color: black !important ;
-                background-color: #800000 !important ;
-                border-radius: 10px !important ;
-                border: 2px black !important ;
-           }
-           .boton_undo{
-                padding: 3px !important ;
-                padding-left: 10px !important ;
-                padding-right: 10px !important ;
-                font-family: helvetica !important ;
-                font-size: 25px !important ;
-                font-style: italic !important ;
-                color: black !important ;
-                background-color: white !important ;
-                border-radius: 10px !important ;
-                border: 2px black !important ;
-              }
-              .boton_undo:hover{
-                opacity: 0.9 !important ;
-              }
-           td{
-              font-family: "Arial", Helvetica, sans-serif;
-              font-size: 25px;
-              font-weight: bold;
-           }
+  input:active {
+    border: 2px solid #2F4F4F;
+    padding: 2px
+  }
+
+  .titulo_label {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+ .selector_imagen{
+      font-family: helvetica;
+      font-weight: 200;
+      font-size: 20px;
+      font-style: italic;
+      color: #5F9EA0;
+    }
+
+ .boton_update{
+     padding: 3px !important ;
+      padding-left: 5px !important ;
+      padding-right: 5px !important ;
+      font-family: helvetica !important ;
+      font-size: 20px !important ;
+      font-style: italic !important ;
+      color: black !important ;
+      background-color: #6B8B23 !important ;
+      border-radius: 10px !important ;
+      border: 2px black !important ;
+ }
+
+ .boton_delete{
+     padding: 3px !important ;
+      padding-left: 5px !important ;
+      padding-right: 5px !important ;
+      font-family: helvetica !important ;
+      font-size: 20px !important ;
+      font-style: italic !important ;
+      color: black !important ;
+      background-color: #800000 !important ;
+      border-radius: 10px !important ;
+      border: 2px black !important ;
+ }
+ .boton_undo{
+      padding: 3px !important ;
+      padding-left: 10px !important ;
+      padding-right: 10px !important ;
+      font-family: helvetica !important ;
+      font-size: 25px !important ;
+      font-style: italic !important ;
+      color: black !important ;
+      background-color: white !important ;
+      border-radius: 10px !important ;
+      border: 2px black !important ;
+    }
+    .boton_undo:hover{
+      opacity: 0.9 !important ;
+    }
 
            
