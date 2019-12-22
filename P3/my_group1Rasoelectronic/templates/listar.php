@@ -32,7 +32,7 @@
                             echo "<img class='Foto' src=$fotoURL>";
                             //echo "<td>";
                         } else {
-                        echo "<td class='column elementosTabla'>", $val, "</td>";
+                        echo "<td class='column'>", $val, "</td>";
                     }
                     }
                     //botones para modificar el cliente y borrarlo
