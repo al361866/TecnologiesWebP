@@ -1,3 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Creo 7 columnes iguals */
+.column {
+  float: left;
+  width: 14%;
+  padding: 5px;
+}
+
+/* Eliminar els flotants despres de les columnes */
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* En dispositius de 992px passem de 7 columnes a tan sols 2 */
+@media screen and (max-width: 992px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* En dispositius menors de 600px passem de 7 columnes a 1 sola */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+
 .Title {
                text-align: center;
                font-size: 40px;
