@@ -45,6 +45,16 @@ function my_init_script(){
 function shortcode_Listado() {
       return '<script src="/wp-content/plugins/my_group1Rasoelectronic/js/listadoAsincrono.js" async defer></script><a id="listadoJSON">Listado asíncrono</a>';
 }
+
+function my_shortcode_styles() {
+    global $post;
+ 
+    if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'shortcode_name' ) ) {
+        wp_enqueue_style( 'shortcode-css', get_theme_file_uri( '/wp-content/plugins/my_group1Rasoelectronic/css/styles.css' ) );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'my_shortcode_styles' );
+
 add_shortcode('listado', 'shortcode_Listado');
 
 add_action('wp_enqueue_scripts', 'my_init_script');
