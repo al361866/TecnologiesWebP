@@ -21,24 +21,24 @@
             if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
                 print '<div><table>';
                 foreach ( array_keys($rows[0])as $key) {
-                    echo "<td>", $key,"</td>";
+                    echo "<td class='column'>", $key,"</td>";
                 }
                 foreach ($rows as $row) {
-                    print "<tr>";
+                    print "<tr >";
                     foreach ($row as $key => $val) {
                         if($key == "foto_file"){
                             $fotoURL = "../wp-content/uploads/fotos_usuarios/".$val; //Mostrar la salida del campo foto
-                            echo "<td>";
+                            echo "<td class='column'>";
                             echo "<img class='Foto' src=$fotoURL>";
                             //echo "<td>";
                         } else {
-                        echo "<td>", $val, "</td>";
+                        echo "<td class='column'>", $val, "</td>";
                     }
                     }
                     //botones para modificar el cliente y borrarlo
-                    echo "<td ><a class='boton_update' href='?action=my_datosRasoelectronic&proceso=actualizar&person_id=", 
+                    echo "<td class='column'><a class='boton_update' href='?action=my_datosRasoelectronic&proceso=actualizar&person_id=", 
                     $row['person_id'],"'>Modificar</a></td>";
-                    echo "<td><a class='boton_delete' href='?action=my_datosRasoelectronic&proceso=delete&person_id=",
+                    echo "<td class='column'><a class='boton_delete' href='?action=my_datosRasoelectronic&proceso=delete&person_id=",
                     $row['person_id'],"'>Eliminar</a></td>";
                     print "</tr>";
                 }
